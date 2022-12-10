@@ -2,7 +2,7 @@
 
 namespace RG.Redux;
 
-public record Store<TState, TEvent> : IStore<TState, TEvent>, IDisposable where TState : notnull where TEvent : IEvent {
+public record Store<TState, TEvent> : IStore<TState, TEvent>, IDisposable where TEvent : IEvent {
 	private readonly BehaviorSubject<TState> _subject;
 	private readonly Reducer<TState, TEvent> _reducer;
 	private bool _disposedValue;
@@ -40,6 +40,6 @@ public record Store<TState, TEvent> : IStore<TState, TEvent>, IDisposable where 
 	}
 }
 
-public record Store<TState> : Store<TState, IEvent> where TState : notnull {
+public record Store<TState> : Store<TState, IEvent> {
 	public Store(Reducer<TState, IEvent> reducer, TState initialValue) : base(reducer, initialValue) { }
 }

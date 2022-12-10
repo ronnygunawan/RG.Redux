@@ -1,3 +1,3 @@
 ﻿namespace RG.Redux;
 
-public delegate TState Reducer<TState, TEvent>(TState state, TEvent @event) where TState : notnull where TEvent : IEvent;
+public delegate TState Reducer<TState, TEvent>(TState state, TEvent @event) where TEvent : IEvent;
