@@ -7,11 +7,19 @@ public record Store<TState, TEvent> : IStore<TState, TEvent>, IDisposable where 
 	private readonly Reducer<TState, TEvent> _reducer;
 	private bool _disposedValue;
 
-	public TState State => _subject.Value;
+	public TState State {
+		get => _subject.Value;
+		protected set => _subject.OnNext(value);
+	}
 
 	public Store(Reducer<TState, TEvent> reducer, TState initialValue) {
 		_subject = new BehaviorSubject<TState>(initialValue);
 		_reducer = reducer;
+	}
+
+	public Store(TState initialValue) {
+		_subject = new BehaviorSubject<TState>(initialValue);
+		_reducer = (_, _) => throw new InvalidOperationException("No reducer provided.");
 	}
 
 	public IDisposable Subscribe(IObserver<TState> observer) => _subject.Subscribe(observer);

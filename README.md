@@ -68,3 +68,16 @@ var subscription = query.Subscribe(value => {
     Console.WriteLine(value);
 });
 ```
+
+### Don't need event types?
+
+Just mutate the `State` property
+
+```cs
+public record FooStore() : Store<int>(0) {
+    public void Increment() => State = State + 1;
+    public void Decrement() => State = State - 1;
+    public void IncrementBy(int x) => State = State + x;
+    public void Reset() => State = 0;
+}
+```
