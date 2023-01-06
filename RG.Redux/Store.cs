@@ -1,5 +1,4 @@
 ﻿using System.Reactive.Subjects;
-using System.Runtime.InteropServices.JavaScript;
 
 namespace RG.Redux;
 
@@ -13,8 +12,8 @@ public record Store<TState, TEvent> : IStore<TState, TEvent>, IDisposable where 
 		protected set => _subject.OnNext(value);
 	}
 
-	public Store(Reducer<TState, TEvent> reducer, TState initialValue) {
-		_subject = new BehaviorSubject<TState>(initialValue);
+	public Store(Reducer<TState, TEvent> reducer, TState initialState) {
+		_subject = new BehaviorSubject<TState>(initialState);
 		_reducer = reducer;
 	}
 
@@ -45,11 +44,11 @@ public record Store<TState, TEvent> : IStore<TState, TEvent>, IDisposable where 
 }
 
 public record Store<TState> : Store<TState, IEvent> {
-	public Store(Reducer<TState, IEvent> reducer, TState initialValue) : base(reducer, initialValue) { }
+	public Store(Reducer<TState, IEvent> reducer, TState initialState) : base(reducer, initialState) { }
 
-	public Store(TState initialValue) : base(
+	public Store(TState initialState) : base(
 		reducer: (_, _) => throw new InvalidOperationException("No reducer provided."),
-		initialValue: initialValue
+		initialState: initialState
 	) { }
 
 }
