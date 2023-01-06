@@ -74,7 +74,7 @@ var subscription = query.Subscribe(value => {
 Just mutate the `State` property
 
 ```cs
-public record FooStore() : Store<int>(0) {
+public record FooStore() : Store<int>(initialValue: 0) {
     public void Increment() => State = State + 1;
     public void Decrement() => State = State - 1;
     public void IncrementBy(int x) => State = State + x;
