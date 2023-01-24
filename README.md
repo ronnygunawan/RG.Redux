@@ -75,9 +75,9 @@ Just mutate the `State` property
 
 ```cs
 public record FooStore() : Store<int>(initialState: 0) {
-    public void Increment() => State = State + 1;
-    public void Decrement() => State = State - 1;
-    public void IncrementBy(int x) => State = State + x;
+    public void Increment() => State++;
+    public void Decrement() => State--;
+    public void IncrementBy(int x) => State += x;
     public void Reset() => State = 0;
 }
 ```
