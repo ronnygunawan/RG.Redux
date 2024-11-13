@@ -150,6 +150,7 @@ csharp_style_deconstructed_variable_declaration = true:suggestion
 csharp_prefer_simple_default_expression = true:suggestion
 csharp_style_pattern_local_over_anonymous_function = true:suggestion
 csharp_style_inlined_variable_declaration = true:suggestion
+csharp_style_namespace_declarations = file_scoped
 ###############################
 # C# Formatting Rules         #
 ###############################
@@ -247,6 +248,12 @@ dotnet_diagnostic.IDE0055.severity = warning
 
 # CA1822: Mark members as static
 dotnet_diagnostic.CA1822.severity = warning
+
+# CA1040: Avoid empty interfaces
+dotnet_diagnostic.CA1040.severity = none
+
+# CA1716: Identifiers should not match keywords
+dotnet_diagnostic.CA1716.severity = none
 
 [*.vb]
 # Modifier preferences

@@ -1,3 +1,3 @@
 ﻿namespace RG.Redux;
 
-public interface IEvent { }
+public interface IEvent;
