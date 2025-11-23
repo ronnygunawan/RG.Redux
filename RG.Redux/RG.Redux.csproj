@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <SignAssembly>False</SignAssembly>
     <Authors>Ronny Gunawan</Authors>
     <Description>A minimal Redux implementation</Description>
-    <Copyright>(C) 2022-2024 Ronny Gunawan</Copyright>
+    <Copyright>(C) 2022-2025 Ronny Gunawan</Copyright>
     <PackageProjectUrl>https://github.com/ronnygunawan/RG.Redux</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/ronnygunawan/RG.Redux</RepositoryUrl>
@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Reactive" Version="6.0.1" />
+    <PackageReference Include="System.Reactive" Version="6.1.0" />
   </ItemGroup>
 
 </Project>
